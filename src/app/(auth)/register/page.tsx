@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function RegisterPage() {
+function RegisterForm() {
     const searchParams = useSearchParams();
     const type = searchParams.get("type") || "client";
     const [email, setEmail] = useState("");
@@ -81,5 +81,13 @@ export default function RegisterPage() {
                 </form>
             </div>
         </div>
+    );
+}
+
+export default function RegisterPage() {
+    return (
+        <Suspense fallback={<div className="flex min-h-screen items-center justify-center text-white">جاري التحميل...</div>}>
+            <RegisterForm />
+        </Suspense>
     );
 }
