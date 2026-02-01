@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Search, MapPin, Filter, Star, CheckCircle } from "lucide-react";
+import Link from "next/link";
 
 const artisans = [
     {
